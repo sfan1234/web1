@@ -38,7 +38,7 @@ steps:
   inputs:
     buildType: 'current'
     downloadType: 'single'
-    artifactName: 'drop'
+    artifactName: 'pino'
     downloadPath: '$(System.ArtifactsDirectory)'
 
 - task: AzureRmWebAppDeployment@4
@@ -47,4 +47,4 @@ steps:
         azureSubscription: 'gandalf'
         appType: 'webApp'
         WebAppName: 'frodotest1234'
-        packageForLinux: '$(System.ArtifactsDirectory)/drop/*.zip'
+        packageForLinux: '$(System.ArtifactsDirectory)/pino/*.zip'
