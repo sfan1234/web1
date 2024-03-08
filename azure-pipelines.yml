@@ -33,3 +33,18 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'pino'
     publishLocation: 'Container'
+
+- task: DownloadBuildArtifacts@0
+  inputs:
+    buildType: 'current'
+    downloadType: 'single'
+    artifactName: 'pino'
+    downloadPath: '$(System.ArtifactsDirectory)'
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: 'gandalf'
+        appType: 'webApp'
+        WebAppName: 'frodotest1234'
+        packageForLinux: '$(System.ArtifactsDirectory)/pino/*.zip'
