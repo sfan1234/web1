@@ -16,6 +16,7 @@
         </p>
         <asp:Button ID="Button2" runat="server" Text="Button" />
         <asp:Button ID="Button3" runat="server" Text="Button" />
+        <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
     </form>
 </body>
 </html>
